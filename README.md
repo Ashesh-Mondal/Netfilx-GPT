@@ -12,8 +12,11 @@ Currently, two official plugins are available:
 - Create React App with Vite
 - Configured TailwindCSS
 - Header
+- Routing of App
 - Log In Form
 - Sign Up Form
+- Form Validation
+- useRef Hook
 
 # Features
 
