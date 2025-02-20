@@ -13,13 +13,17 @@ Currently, two official plugins are available:
 - Configured TailwindCSS
 - Header
 - Log In Form
+- Sign Up Form
 
 # Features
+
 - Login/Sign Up
-    - Sign In / Sign Up Form
-    - If signed in, redirect to Browser Page
+
+  - Sign In / Sign Up Form
+  - If signed in, redirect to Browser Page
 
 - Browser (after authentication)
+
   - Header
   - Main Movie
     - Trailer in Background
@@ -28,5 +32,5 @@ Currently, two official plugins are available:
       - MovieLists \* N
 
 - NetlixGPT
-    - Search Bar
-    - Movie Suggestions
+  - Search Bar
+  - Movie Suggestions
