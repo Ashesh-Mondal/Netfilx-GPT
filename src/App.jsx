@@ -1,9 +1,9 @@
-import "./App.css";
+import Body from "./components/Body";
 
 export default function App() {
   return (
     <>
-      <h1>App Component</h1>
+      <Body />
     </>
   );
 }
