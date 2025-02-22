@@ -1,6 +1,11 @@
 import { useState, useRef } from "react";
 import Header from "./Header";
 import { checkValidData } from "../utils/validate.js";
+import { auth } from "../utils/firebase.js";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -21,6 +26,48 @@ const Login = () => {
       password.current.value
     );
     setErrorMessage(errorMessage);
+    if (errorMessage) return;
+
+    // Sign Up User
+    if (!isSignInForm) {
+      createUserWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          // Signed up
+          const user = userCredential.user;
+          console.log(user);
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorCode + "-" + errorMessage);
+        });
+    } // Sign In User
+    else {
+      signInWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log(user);
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          if (errorCode === "auth/invalid-credential") {
+            setErrorMessage("User not registered");
+            console.log(
+              "Error Code: " + errorCode + "  Error Message: " + errorMessage
+            );
+          }
+        });
+    }
   };
 
   return (

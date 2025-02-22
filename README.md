@@ -17,6 +17,7 @@ Currently, two official plugins are available:
 - Sign Up Form
 - Form Validation
 - useRef Hook
+- Create SignUp User Account
 
 # Features
 
